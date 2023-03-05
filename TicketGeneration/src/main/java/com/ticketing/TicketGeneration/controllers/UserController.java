@@ -4,10 +4,7 @@ import com.ticketing.TicketGeneration.models.ApiResponse;
 import com.ticketing.TicketGeneration.models.UserModel;
 import com.ticketing.TicketGeneration.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -23,6 +20,14 @@ public class UserController {
         userService.createUser(userModel);
         ApiResponse apiResponse = new ApiResponse();
         apiResponse.setMessage("User created successfully");
+        return apiResponse;
+    }
+
+    @GetMapping("/get")
+    public ApiResponse getUsers() {
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setResponseCode(200);
+        apiResponse.setMessage("No users as of now");
         return apiResponse;
     }
 }
