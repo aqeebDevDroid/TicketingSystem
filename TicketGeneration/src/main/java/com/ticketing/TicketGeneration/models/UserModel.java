@@ -6,6 +6,8 @@ import javax.validation.constraints.NotNull;
 public class UserModel {
     private String name;
 
+
+
     private String email;
 
     @NotEmpty(message = "Mobile number is mandatory")
